@@ -1,9 +1,11 @@
 // TODO: Include packages needed for this application
-var inquirer = require('inquirer');
+var inquire = require('inquirer');
 const fs = require('fs');
 
 // TODO: Create an array of questions for user input
-const questions = [
+// const questions = [
+inquire
+    .prompt ([
     {
         type: 'input',
         message: 'What is the title of the README?',
@@ -43,12 +45,25 @@ const questions = [
         // [![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)
         // [![License](https://img.shields.io/badge/License-EPL_1.0-red.svg)](https://opensource.org/licenses/EPL-1.0)
         // [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-    }
-          
-];
-
+    },
+    {
+        type: 'input',
+        message: 'Enter Github username',
+        name: 'gitUsername',
+    },
+    {
+        type: 'input',
+        message: 'Enter email address.',
+        name: 'email',
+    }     
+])
+.then((data) => {
+    console.log(data);
+});
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    
+}
 
 // TODO: Create a function to initialize app
 function init() {}
