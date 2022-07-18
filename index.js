@@ -1,11 +1,11 @@
 // TODO: Include packages needed for this application
 var inquire = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown')
+
 
 // TODO: Create an array of questions for user input
-// const questions = [
-inquire
-    .prompt ([
+const questions = [
     {
         type: 'input',
         message: 'What is the title of the README?',
@@ -16,63 +16,65 @@ inquire
         message: 'Enter a description for the README.',
         name: 'description',   
     },
-    // {
-    //     type: 'input',
-    //     message: 'Enter installation instructions.',
-    //     name: 'installation',
-    // },
-    // {
-    //     type: 'input',
-    //     message: 'Enter usage information.',
-    //     name: 'usage',
-    // },
-    // {
-    //     type: 'input',
-    //     message: 'Enter the contribution guidelines.',
-    //     name: 'contributing',
-    // },
-    // {
-    //     type: 'input',
-    //     message: 'Enter the test instructions.',
-    //     name: 'tests',
-    // },
-    // {
-    //     type: 'list',
-    //     message: 'Select the license you would like to include.',
-    //     name: 'license',
-    //     choices: ['Apache 2.0 License', 'Creative Commons', 'Eclipse Public License 1.0', 'The MIT License' ]
-    //     // [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-    //     // [![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)
-    //     // [![License](https://img.shields.io/badge/License-EPL_1.0-red.svg)](https://opensource.org/licenses/EPL-1.0)
-    //     // [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-    // },
-    // {
-    //     type: 'input',
-    //     message: 'Enter Github username',
-    //     name: 'gitUsername',
-    // },
-    // {
-    //     type: 'input',
-    //     message: 'Enter email address.',
-    //     name: 'email',
-    // }     
-])
-.then((data) => {
-    console.log(JSON.stringify(data));
-    let stringData = JSON.stringify(data)
-    // console.log(`${data.tile}`)
-    writeToFile(fileName, stringData);
-});
+    {
+        type: 'input',
+        message: 'Enter installation instructions.',
+        name: 'installation',
+    },
+    {
+        type: 'input',
+        message: 'Enter usage information.',
+        name: 'usage',
+    },
+    {
+        type: 'input',
+        message: 'Enter the contribution guidelines.',
+        name: 'contributing',
+    },
+    {
+        type: 'input',
+        message: 'Enter the test instructions.',
+        name: 'tests',
+    },
+    {
+        type: 'list',
+        message: 'Select the license you would like to include.',
+        name: 'license',
+        choices: ['Apache 2.0 License', 'Creative Commons', 'The MIT License', 'none' ]
+    },
+    {
+        type: 'input',
+        message: 'Enter Github username',
+        name: 'gitUsername',
+    },
+    {
+        type: 'input',
+        message: 'Enter email address.',
+        name: 'email',
+    }     
+]
+
+
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile('README.md', fileName, (err) => 
+    return fs.writeFile('newREADME.md', fileName, (err) => 
     err ? console.log(err) : console.log('Success! Your README has been created!')
     );
 };
 
 
 // TODO: Create a function to initialize app
-function init() {}
+// prompt questions then take response; write to file geneerate read me, g
+function init() {
+   inquire.prompt(questions)
+   .then((data) => {
+        console.log(data);
+        let stringData = JSON.stringify(data)
+        console.log(stringData)
+        // let newREADME = generateREADME()
+        writeToFile('README.md', generateMarkdown({...stringData}));
+    });
+}
 
 // Function call to initialize app
 init();
