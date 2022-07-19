@@ -8,13 +8,13 @@ The purpose of this project is to create a command-line application that dynamic
 # Demo
 Click link to watch video and see functionality of application
 
-[Video](https://drive.google.com/file/d/1rkwf7okYj6Md0IrcMgorUBcPCtyjud9a/view)
+[Demo Video of Readme Generator](https://drive.google.com/file/d/1uzPkt5v-Dvu3Hk9VE-2L4pPcDF4h9LRW/view?usp=sharing)
 
 <br>
 
 #   Screenshot
 
-![Generated Readme]()
+![Generated Readme](./images/screenshotreadme.jpg)
 
 <br>
 
@@ -31,7 +31,9 @@ Special thanks to...
 
 # Resources
 [Badges](https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba)
+
 [Inquirer Package](https://www.npmjs.com/package/inquirer/v/8.2.4)
+
 [Node.js](https://nodejs.org/api/fs.html)
 
 
