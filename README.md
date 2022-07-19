@@ -6,9 +6,9 @@ The purpose of this project is to create a command-line application that dynamic
 <br>
 
 # Demo
-Watch video to see functionality of application
+Click link to watch video and see functionality of application
 
-[Video]()
+[Video](https://drive.google.com/file/d/1rkwf7okYj6Md0IrcMgorUBcPCtyjud9a/view)
 
 <br>
 
